@@ -13,7 +13,6 @@ app = Flask(__name__)
 def index():
     return flask.render_template('index.html')
 
-# Load the Random Forest CLassifier model
 filename = 'model.pkl'
 clf = joblib.load(open(filename, 'rb'))
 
