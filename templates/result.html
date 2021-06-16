@@ -1,133 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Iris Flower Predictor</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='iris.png') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
-    <style type="text/css">
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Iris Flower Predictor</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='iris.png') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
 
-        .heading{
-            padding: 30px;
-            position: relative;
-            background: linear-gradient(35deg, #443B96, #8f00b3, #cc0099, #3399ff);
-            background-size: 600% 600%;
-            animation: change-gradient 20s ease-in-out infinite; 
-            
-        }
-         @keyframes change-gradient {
-                0%{
-                    background-position: 0 50%;
-                }
-                50%{
-                    background-position: 100% 50%;
-                }
-                100%{
-                    background-position: 0 50%;
-                    }
-        }
-        .heading-h1{
-            margin: 0;
-            color: #ffffff;
-            font-family: 'Pacifico', cursive;
-            font-size: 35px;
-            font-weight: normal;
-        }
+    <body>
 
-        .result{
-        	padding: 30px 0 0;
-        	flex: 1 0 auto;
-        }
-        .footer{
-            position: relative;
-            bottom: 0;
-            padding: 29px;
-            background: linear-gradient(35deg, #443B96, #8f00b3, #cc0099, #3399ff);
-            background-size: 500% 500%;
-            animation: change-gradient 20s ease-in-out infinite;finite;
-        }
+        <!-- Website Title -->
+        <div class="heading">
+            <h2 class='heading-h2'><span class="heading_font">Iris Flower Predictor</span></h2>
+        </div>
 
-        .contact-icon{
-            color: #ffffff;
-            padding: 7px;
-        }
+        <!--Main Body -->
+        <div class="result">
+            {% if prediction==0 %}
+            <h1>Prediction: Setosa</h1>
+            <img src="{{ url_for('static', filename='Iris_setosa.jpg') }}" class='img'>
 
-        .contact-icon:hover{
-            color: #8c8c8c;
-        }
+            {% elif prediction==1 %}
+            <h1>Prediction: Versicolor</h1>
+            <img src="{{ url_for('static', filename='Iris_Versicolor.jpg') }}" class='img'>
+        
+            {% elif prediction==2 %}
+            <h1>Prediction: Virginica</h1>
+            <img src="{{ url_for('static', filename='Iris_virginica.jpg') }}" class='img'>
 
-        .footer-description{
-            color: #ffffff;
-            margin: 0;
-            font-size: 12px;
-        }
-        .image{
+            {% endif %}
+        </div>
 
-        	margin: 10px;
-        	width: 25%;
-        }
-        .image1{
-        	width: 20%;
-        }
+        <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/Abhishek20182"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/abhishek-tiwari-nitrr/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-des'>Made with ❤️ by Abhishek Tiwari.</p>
+       </div>
 
-        h1{
-        	font-family: 'Pacifico', cursive;
-        }
-
-        body {
-            font-family: Helvetica,sans-serif;
-            position: relative;
-            flex-direction: column;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-	        height: 100%;
-	        flex-direction: column;
-	        text-align: center;
-
-        }
-
-        html{
-           margin: 0;
-           padding: 0;
-           height: 100%;
-        }
-
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <div class="heading">
-        <h1 class="heading-h1">Iris Flower Predictor</h1>
-    </div>
-
-    <!--Main Body -->
-    <div class="result">
-		{% if prediction==0 %}
-		<h1>Prediction: Setosa</h1>
-		<img src="{{ url_for('static', filename='Iris_setosa.jpg') }}" class='image1'>
-
-		{% elif prediction==1 %}
-		<h1>Prediction: Versicolor</h1>
-		<img src="{{ url_for('static', filename='Iris_Versicolor.jpg') }}" class='image'>
-		
-		{% elif prediction==2 %}
-		<h1>Prediction: Virginica</h1>
-		<img src="{{ url_for('static', filename='Iris_virginica.jpg') }}" class='image'>
-
-		{% endif %}
-	</div>
-
-    <!-- Footer -->
-    <div class="footer" align="center" >
-        <div class="contact">
-            <a target="_blank" href="https://github.com/Abhishek20182"><i class="fab fa-github fa-lg contact-icon"></i></a>
-            <a target="_blank" href="https://www.linkedin.com/in/abhishek-tiwari-nitrr/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
-        </div class='footer-description'>
-        <p class='footer-description'>Made with ❤️ by Abhishek Tiwari.</p>
-    </div>
-</body>
+    </body>
 </html>
