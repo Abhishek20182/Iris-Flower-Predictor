@@ -91,7 +91,7 @@ body{
 	animation: change-gradient 20s ease-in-out infinite;
 }
 
-.footer-description{
+.footer-des{
 	color: #ffffff;
 	margin: 0;
 	font-size: 12px;
@@ -108,24 +108,14 @@ body{
 }
 
 
-.results{
+.result{
     padding: 30px 0 0;
 	flex: 1 0 auto;
+	font-family: 'Pacifico', cursive;
 }
 
-.danger{
-    color: #ff0000;
-}
-
-.safe{
-    color: green;
-}
-
-.gif{
-	width: 25%;
-}
-
-.gif1{
+.img{
+	padding-bottom: auto;
 	width: 35%;
-    	margin: 10px 0;
 }
+
